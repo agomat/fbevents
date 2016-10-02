@@ -15,7 +15,15 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from app.views import IndexView
+from app.views import TopicView
+from app.views import EventView
+
 
 urlpatterns = [
+    url(r'^$', IndexView.as_view(), name='index'),
+    url(r'^topic/(?P<term>.*)$', TopicView.as_view(), name='topic'),
+    url(r'^event/(?P<pk>.*)$', EventView.as_view(), name='event'),
+    # url(r'^location/(?P<id>.*)$', views.location, name='location'),
     url(r'^admin/', admin.site.urls),
 ]
