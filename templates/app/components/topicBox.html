@@ -1,0 +1,14 @@
+{% extends 'app/master/master_box.html' %}
+
+{% block boxtitle %}
+    Topics
+{% endblock %}
+
+
+{% block boxcontent %}
+    <ul>
+        {% for t in topics %}
+            <li><a href="{% url 'topic' t.name %}">{{t.name}}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}
